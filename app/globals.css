@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f7fc;
+  --foreground: #08111f;
+  --muted: #64748b;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --line: rgba(8, 17, 31, 0.08);
+  --line-strong: rgba(8, 17, 31, 0.14);
+  --accent: #1d4ed8;
+  --accent-deep: #08152f;
+  --accent-soft: #dbe8ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at top left, rgba(29, 78, 216, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 15%, rgba(8, 21, 47, 0.09), transparent 22%),
+    linear-gradient(180deg, #f8fbff 0%, #f4f7fc 46%, #eef2fb 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(12, 27, 56, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 27, 56, 0.045) 1px, transparent 1px);
+  background-size: 82px 82px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  opacity: 0.6;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  right: -10rem;
+  bottom: -8rem;
+  width: 30rem;
+  height: 30rem;
+  pointer-events: none;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(37, 99, 235, 0.05) 48%, transparent 72%);
+  filter: blur(16px);
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, var(--surface-strong) 0%, var(--surface) 100%);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 18px 60px rgba(8, 17, 31, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.display-font {
+  font-family: var(--font-display), sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.animate-rise {
+  animation: rise-in 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-swatch {
+  animation: swatch-in 550ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.soft-ring {
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 0 6px rgba(37, 99, 235, 0.08);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes swatch-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
