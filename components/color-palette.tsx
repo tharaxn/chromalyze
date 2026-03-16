@@ -41,7 +41,7 @@ export function ColorPalette({ colors }: ColorPaletteProps) {
   }
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
       {colors.map((hex, index) => {
         const isCopied = copiedHex === hex;
         const labelColor = getReadableTextColor(hex);
@@ -51,11 +51,11 @@ export function ColorPalette({ colors }: ColorPaletteProps) {
             key={hex}
             type="button"
             onClick={() => void handleCopy(hex)}
-            className="animate-swatch group rounded-[1.6rem] border border-[color:var(--line)] bg-white/88 p-4 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_18px_45px_rgba(14,30,64,0.14)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
+            className="animate-swatch group rounded-[1.35rem] border border-[color:var(--line)] bg-white/88 p-3.5 text-left transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_18px_45px_rgba(14,30,64,0.14)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-100"
             style={{ animationDelay: `${index * 90}ms` }}
           >
             <div
-              className="relative mb-4 h-32 overflow-hidden rounded-[1.25rem] border border-black/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"
+              className="relative mb-3 h-24 overflow-hidden rounded-[1.05rem] border border-black/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"
               style={{ backgroundColor: hex }}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-white/12 to-black/10" />
@@ -68,10 +68,10 @@ export function ColorPalette({ colors }: ColorPaletteProps) {
 
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="display-font text-xl font-semibold tracking-[-0.03em] text-slate-950">
+                <p className="display-font text-lg font-semibold tracking-[-0.03em] text-slate-950">
                   {hex}
                 </p>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-xs text-slate-500 sm:text-sm">
                   {isCopied ? "HEX copied to clipboard" : "Tap card to copy"}
                 </p>
               </div>
