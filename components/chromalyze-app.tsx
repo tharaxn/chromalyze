@@ -18,7 +18,7 @@ function PaletteSkeleton() {
       {Array.from({ length: 4 }).map((_, index) => (
         <div
           key={index}
-          className="animate-pulse rounded-[1.5rem] border border-[color:var(--line)] bg-white/70 p-4"
+          className="animate-pulse rounded-3xl border border-(--line) bg-white/70 p-4"
         >
           <div className="mb-4 h-28 rounded-[1.2rem] bg-slate-200" />
           <div className="mb-2 h-4 w-24 rounded-full bg-slate-200" />
@@ -40,13 +40,13 @@ export function ChromalyzeApp() {
 
   return (
     <main className="relative overflow-hidden px-2 py-2 sm:px-3 lg:px-4">
-      <div className="mx-auto flex min-h-screen w-full max-w-[1800px] flex-col">
+      <div className="mx-auto flex min-h-screen w-full max-w-450 flex-col">
         <div className="grid gap-4 xl:min-h-[calc(100vh-1rem)] xl:grid-cols-[0.95fr_1.12fr]">
-          <section className="glass-panel rounded-[2rem] px-4 py-4 sm:px-5 sm:py-5 xl:min-h-0">
+          <section className="glass-panel rounded-4xl px-4 py-4 sm:px-5 sm:py-5 xl:min-h-0">
             <div className="grid gap-4 xl:h-full xl:grid-cols-[1.02fr_0.98fr] xl:items-stretch">
               <div className="flex h-full flex-col xl:pt-5">
-                <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-[color:var(--line)] bg-white/80 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-slate-500">
-                  <span className="soft-ring h-2.5 w-2.5 rounded-full bg-[color:var(--accent)]" />
+                <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-(--line) bg-white/80 px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-slate-500">
+                  <span className="soft-ring h-2.5 w-2.5 rounded-full bg-(--accent)" />
                   Website Color Palette Extractor
                 </div>
 
@@ -130,7 +130,7 @@ export function ChromalyzeApp() {
                     value={websiteUrl}
                     onChange={(event) => setWebsiteUrl(event.target.value)}
                     placeholder="https://stripe.com"
-                    className="w-full rounded-[1.05rem] border border-[color:var(--line-strong)] bg-white px-4 py-3.5 text-base text-slate-950 outline-none transition duration-200 placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                    className="w-full rounded-[1.05rem] border border-(--line-strong) bg-white px-4 py-3.5 text-base text-slate-950 outline-none transition duration-200 placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
                   />
 
                   <div className="flex flex-wrap gap-2">
@@ -139,7 +139,7 @@ export function ChromalyzeApp() {
                         key={exampleUrl}
                         type="button"
                         onClick={() => setWebsiteUrl(exampleUrl)}
-                        className="rounded-full border border-[color:var(--line)] bg-white px-3 py-2 text-xs text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
+                        className="rounded-full border border-(--line) bg-white px-3 py-2 text-xs text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                       >
                         {exampleUrl.replace(/^https?:\/\//, "")}
                       </button>
@@ -155,7 +155,7 @@ export function ChromalyzeApp() {
                   </button>
                 </div>
 
-                <div className="mt-3 rounded-[1.05rem] border border-[color:var(--line)] bg-slate-50 px-4 py-3">
+                <div className="mt-3 rounded-[1.05rem] border border-(--line) bg-slate-50 px-4 py-3">
                   <p className="text-sm font-medium text-slate-700">
                     Chromalyze now returns only real extracted colors, usually
                     between 1 and 4 depending on the website.
@@ -171,7 +171,7 @@ export function ChromalyzeApp() {
             </div>
           </section>
 
-          <section className="glass-panel rounded-[2rem] px-4 py-4 sm:px-5 sm:py-5 xl:flex xl:min-h-0 xl:flex-col">
+          <section className="glass-panel rounded-4xl px-4 py-4 sm:px-5 sm:py-5 xl:flex xl:min-h-0 xl:flex-col">
             <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="mb-2 text-[11px] uppercase tracking-[0.22em] text-slate-500">
@@ -184,7 +184,7 @@ export function ChromalyzeApp() {
 
               <div className="flex flex-wrap gap-2">
                 {state.normalizedUrl ? (
-                  <div className="rounded-full border border-[color:var(--line)] bg-white/85 px-4 py-2 text-sm text-slate-600">
+                  <div className="rounded-full border border-(--line) bg-white/85 px-4 py-2 text-sm text-slate-600">
                     {state.normalizedUrl}
                   </div>
                 ) : null}
@@ -210,7 +210,7 @@ export function ChromalyzeApp() {
               ) : null}
 
               {!isPending && !hasPalette ? (
-                <div className="flex min-h-[320px] w-full items-center justify-center rounded-[1.5rem] border border-dashed border-[color:var(--line-strong)] bg-white/65 px-5 py-8 text-center sm:px-6 xl:flex-1 xl:px-8">
+                <div className="flex min-h-80 w-full items-center justify-center rounded-3xl border border-dashed border-(--line-strong) bg-white/65 px-5 py-8 text-center sm:px-6 xl:flex-1 xl:px-8">
                   <div>
                   <p className="display-font mb-3 text-2xl font-semibold text-slate-950">
                     Your palette will appear here
